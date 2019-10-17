@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutTransparent"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@android:color/transparent">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutDialogRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutTransparent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutRootTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="125dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textViewDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="12sp"
+                    tools:text="Could you check out our new product?" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textViewContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="18sp"
+                    tools:text="We have a new app we just released on our beta channel. Would be great if you gave it a look?" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageViewIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/relativeLayoutDialogRoot"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-20dp"
+            android:adjustViewBounds="true"
+            android:elevation="5dp"
+            android:src="@drawable/elegant_round_icon" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRootBottom"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FFF"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPositive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/elegant_dialog_action_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewPositive"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal"
+                android:tint="@color/md_white_1000" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewPositive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#000"
+                tools:text="YES" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNegative"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/elegant_dialog_action_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewNegative"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal"
+                android:tint="@color/md_white_1000" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewNegative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#000"
+                tools:text="NO" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutGotIt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/elegant_dialog_action_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewGotIt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal"
+                android:tint="@color/md_white_1000" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewGotIt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#000"
+                tools:text="GOT IT"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

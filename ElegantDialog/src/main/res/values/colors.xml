@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Material Colors-->
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_white_1000">#FFFFFF</color>
+</resources>

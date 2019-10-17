@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Elegant Dialog</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="content">Content</string>
+    <string name="colors">Colors</string>
+    <string name="select">Select</string>
+    <string name="background_top_color">Background top color</string>
+    <string name="background_bottom_color">Background bottom color</string>
+    <string name="text_color">Text color</string>
+    <string name="show">Show</string>
+    <string name="description_text">Could you check out our new product?</string>
+    <string name="content_text">We have a new app we just released on our beta channel. Would be great if you gave it a look?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="not_now">Not Now</string>
+    <string name="positive_button">Positive button</string>
+    <string name="negative_button">Negative button</string>
+    <string name="gotIt_button">GotIt button</string>
+</resources>

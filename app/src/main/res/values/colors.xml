@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--Material Colors-->
+    <color name="md_black_1000">#000000</color>
+    <color name="md_blue_500">#2196F3</color>
+    <color name="md_blue_700">#1976D2</color>
+    <color name="md_blue_800">#1565C0</color>
+    <color name="md_brown_700">#5D4037</color>
+    <color name="md_cyan_700">#0097A7</color>
+    <color name="md_green_700">#388E3C</color>
+    <color name="md_green_800">#2E7D32</color>
+    <color name="md_grey_100">#F5F5F5</color>
+    <color name="md_grey_400">#BDBDBD</color>
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_light_blue_700">#0288D1</color>
+    <color name="md_orange_700">#F57C00</color>
+    <color name="md_orange_800">#EF6C00</color>
+    <color name="md_purple_700">#7B1FA2</color>
+    <color name="md_purple_800">#6A1B9A</color>
+    <color name="md_red_500">#F44336</color>
+    <color name="md_red_700">#D32F2F</color>
+    <color name="md_red_800">#C62828</color>
+
+    <color name="cancel_background">#55000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="animator_text_bg">#55000000</color>
+    <color name="semi_transparent_background">#77000000</color>
+    <color name="scale_bg_black">#FF222222</color>
+    <color name="black">#000000</color>
+    <color name="md_white_1000">#FFFFFF</color>
+
+    <!-- Color tags used for palette -->
+    <color name="red">#FFF44336</color>
+    <color name="purple">#FF9C27B0</color>
+    <color name="deepPurple">#FF673AB7</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="teal">#FF009688</color>
+    <color name="green">#FF4CAF50</color>
+    <color name="yellow">#FFFFEB3B</color>
+    <color name="orange">#FFFF9800</color>
+    <color name="deepOrange">#FFFE5621</color>
+    <color name="brown">#FF795548</color>
+    <color name="grey">#FF9E9E9E</color>
+    <color name="darkGrey">#FF363F45</color>
+</resources>

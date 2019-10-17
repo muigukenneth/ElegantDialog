@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/round_background">
+        <shape android:shape="oval">
+            <solid
+                android:id="@+id/background_color"
+                android:color="#FFFFFF" />
+            <size
+                android:width="120dp"
+                android:height="120dp" />
+        </shape>
+    </item>
+    <item
+        android:id="@+id/drawable_image"
+        android:drawable="@drawable/ic_person_large"
+        android:bottom="20dp"
+        android:left="20dp"
+        android:right="20dp"
+        android:top="20dp" />
+</layer-list>

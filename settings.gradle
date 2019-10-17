@@ -1,0 +1,2 @@
+include ':app', ':ElegantDialog'
+rootProject.name='Elegant Dialog'
