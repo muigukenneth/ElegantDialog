@@ -4,17 +4,17 @@
 
 ## Download
 ```gradle
-   allprojects {
-	repositories {
+      allprojects {
+	    repositories {
 			...
 			maven { url 'https://jitpack.io' }
-    }
-	}
+        }
+	   }
      
 
-  dependencies {
+      dependencies {
    implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
-	}
+      }
  ``` 
 ## Features
  * Top background customization
