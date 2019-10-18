@@ -13,7 +13,7 @@
      
 
       dependencies {
-   implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
+          implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
       }
  ``` 
 ## Features
