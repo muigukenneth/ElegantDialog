@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.color.colorChooser
+import com.gurutouchlabs.kenneth.elegantdialog.ElegantActionListeners
+import com.gurutouchlabs.kenneth.elegantdialog.ElegantDialog
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.googlematerial.GoogleMaterial
 import com.mikepenz.iconics.utils.toIconicsSizeDp
@@ -191,7 +193,8 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveButtonText(positiveText)
                 .setNegativeButtonText(negativeText)
                 .setGotItButtonText(gotItText)
-                .setElegantActionClickListener(object : ElegantActionListeners {
+                .setElegantActionClickListener(object :
+                    ElegantActionListeners {
                     override fun onPositiveListener(dialog: ElegantDialog) {
                         try {
                             val intentToAppStore =

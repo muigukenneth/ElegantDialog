@@ -1,4 +1,4 @@
-package com.gurutouchlabs.kenneth.elegantdialogapp
+package com.gurutouchlabs.kenneth.elegantdialog
 
 import android.content.DialogInterface
 
