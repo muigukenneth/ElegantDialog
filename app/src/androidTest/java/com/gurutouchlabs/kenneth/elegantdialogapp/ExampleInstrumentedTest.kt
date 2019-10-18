@@ -18,6 +18,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.gurutouchlabs.kenneth.elegantdialog", appContext.packageName)
+        assertEquals("com.gurutouchlabs.kenneth.elegantdialogapp", appContext.packageName)
     }
 }

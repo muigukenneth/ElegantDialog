@@ -1,26 +1,22 @@
 # ElegantDialog
-<a href='https://play.google.com/store/apps/details?id=com.geniusforapp.fancysample'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="70" width="180"/></a>
-
-A customisable AlertDialog for Android.
 
 
-## Add Library
-```
-allprojects {
-		repositories {
+
+## Download
+```gradle
+   allprojects {
+	repositories {
 			...
 			maven { url 'https://jitpack.io' }
-		}
+    }
 	}
-       
+     
 
-dependencies {
-	        implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
+  dependencies {
+   implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
 	}
-
-```
-
-# Features
+ ``` 
+## Features
  * Top background customization
  * Bottom background customization
  * Custom icons(buttons and title)
