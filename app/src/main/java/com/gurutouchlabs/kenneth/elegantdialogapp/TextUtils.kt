@@ -1,4 +1,4 @@
-package com.gurutouchlabs.kenneth.elegantdialog
+package com.gurutouchlabs.kenneth.elegantdialogapp
 
 import android.content.Context
 import android.content.Intent
