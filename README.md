@@ -1,5 +1,5 @@
 # ElegantDialog
-[![Build Status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)
+![Build Status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)
 
 
 ## Download
