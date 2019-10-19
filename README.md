@@ -1,5 +1,5 @@
 # ElegantDialog
-
+[![Build Status](https://app.nevercode.io/api/cc.xml?token=7c921840d39d248c0192d87459f3b667)
 
 
 ## Download
@@ -31,7 +31,7 @@ Feel free to contribute to ElegantDialog.
 If you've fixed a bug or added feature you've added, just create a pull request. If you've found a bug, want a new feature, or have other questions, file an issue. I will try to answer as soon as possible.
 
 
-## License
+### License
 Copyright (c) 2019 Kenneth
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

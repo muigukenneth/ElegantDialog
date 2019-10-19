@@ -16,9 +16,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    tasks.withType(VerificationTask) { task ->
-        task.ignoreFailures = true
-    }
     buildTypes {
         release {
             minifyEnabled false
