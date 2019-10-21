@@ -6,9 +6,9 @@
 [![API](https://img.shields.io/badge/API-22%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=22)
 
 <p align="left">
-<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px" height="400px" />
-<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_2New.png" width="400px" height="400px" />
-<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_3New.png" width="400px" height="400px" />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px"  />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_3New.png" width="400px"  />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_2New.png" width="400px"  />
 </p>
   
 ## Download
