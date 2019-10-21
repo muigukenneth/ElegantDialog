@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
 
-![Showcase](https://github.com/muigukenneth/ElegantDialog/blob/master/screenshots/showcase.jpg)
+![Showcase][1]
 
 ## Download
 ```gradle
@@ -17,20 +17,97 @@
      
 dependencies {
   ...
-  implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
+  implementation 'com.github.muigukenneth:ElegantDialog:1.1.1'
 }
  ``` 
 ## Features
+-------------------
  * Top background customization
  * Bottom background customization
+ * Custom layout
  * Custom icons(buttons and title)
  * Color customizations (Icons and Text)
- * Text customizations (Buttons, title, description and content)
+ * Text customizations (Buttons, title and content)
+ * Custom fonts (title and content)
+ 
+## How to use ElegantDialog
+-------------------
+Simple use cases will look something like this:
+```kotlin
+     val dialog = ElegantDialog(context)
+                .setTitleIcon(titleIcon)//Set title icon drawable
+                .setTitleIconBackgroundColor(backgroundIconColor) //Set title icon drawable background color
+                .setBackgroundTopColor(backgroundTopColor)// Set top color
+                .setBackgroundBottomColor(backgroundBottomColor) // Set bottom color
+                .setCustomView(R.layout.custom_image_layout)//Set custom layout
+                .setCornerRadius(50f) //Set dialog corner radius
+                .setCanceledOnTouchOutside(false) // Dismiss on tap outside
+                .setTitleHidden(false) // Hide title
+                .setElegantActionClickListener(object :
+                    ElegantActionListeners {
+                    override fun onPositiveListener(dialog: ElegantDialog) {
+                      
+                        dialog.dismiss()
+                    }
 
+                    override fun onNegativeListener(dialog: ElegantDialog) {
+                        dialog.dismiss()
+                    }
 
+                    override fun onGotItListener(dialog: ElegantDialog) {
+
+                        dialog.dismiss()
+                    }
+
+                    override fun onCancelListener(dialog: DialogInterface) {
+                        dialog.dismiss()
+                    }
+                })
+                .show()  // Finally don't forget to call show()
+                
+                 // access your customView
+             val contentView: View? = dialog.getCustomView()
+              
+            // Now for the title, content and buttons customisations
+            if (dialog.getTitleIconView() != null) {
+                // You can use glide or picasso to display your own title image
+                val imageUrl = R.drawable.face
+                Glide.with(this).load(imageUrl)
+                    .transition(ImageUtils.requestAvatarTransitionOptions())
+                    .apply(ImageUtils.requestAvatarOptions("app"))
+                    .into(dialog.getTitleIconView()!!)
+                    
+                dialog.getTitleTextView()!!.text = titleText //Set title text
+                dialog.getTitleTextView()!!.setTextColor(titleTextColor) //Set title text color
+                
+                dialog.getContentTextView()!!.text = contentText //Set content text
+                dialog.getContentTextView()!!.setTextColor(contentTextColor) //Set content text color
+                
+                dialog.getPositiveButtonIconView()!!.setImageDrawable(positiveIcon) //Set positive button icon drawable
+                dialog.getPositiveButtonIconView()!!.setColorFilter(positiveIconColor) //Set positive button icon drawable color
+                dialog.getPositiveButtonTextView()!!.text = positiveText //Set positive button text
+                
+                dialog.getNegativeButtonIconView()!!.setImageDrawable(negativeIcon) //Set negative button icon drawable
+                dialog.getNegativeButtonIconView()!!.setColorFilter(negativeIconColor) //Set negative button icon drawable color
+                dialog.getNegativeButtonTextView()!!.text = negativeText //Set negative button text
+                
+                dialog.getGotItButtonIconView()!!.setImageDrawable(gotItIcon) //Set got it button icon drawable
+                dialog.getGotItButtonIconView()!!.setColorFilter(gotItIconColor) //Set negative button icon drawable color
+                dialog.getGotItButtonTextView()!!.text = gotItText //Set got it button text
+                
+                dialog.getPositiveButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE //Hide positive button text
+                dialog.getNegativeButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE //Hide negative button text
+                dialog.getGotItButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE //Hide got it button text
+                
+                dialog.getPositiveButton()!!.visibility = if (hidePositiveButton) View.GONE else View.VISIBLE //Hide positive button 
+                dialog.getNegativeButton()!!.visibility = if (hideNegativeButton) View.GONE else View.VISIBLE //Hide negative button
+                dialog.getGotItButton()!!.visibility = if (hideGotItButton) View.GONE else View.VISIBLE  //Hide got it button
+            }
+            
+``` 
 ### Pull requests are welcome!
-
+-------------------
 Feel free to contribute to ElegantDialog.
 
-If you've fixed a bug or added feature you've added, just create a pull request. If you've found a bug, want a new feature, or have other questions, file an issue. I will try to answer as soon as possible.
+If you want to fix a bug or want to add a feature, just create a pull request.
 
