@@ -4,16 +4,16 @@
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
 [![API](https://img.shields.io/badge/API-22%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=22)
-```html
+
 <p align="left">
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px" />
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_2New.png" width="400px" />
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_3New.png" width="400px" />
 </p>
- ``` 
+  
 ## Download
 
-Quickly add the dependencies:
+Easily add the dependencies:
 ```gradle
  allprojects {
    repositories {
