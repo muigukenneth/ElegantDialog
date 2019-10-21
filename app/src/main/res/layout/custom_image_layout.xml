@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/image"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hamburger"
+            android:transitionName="image_square"
+            app:layout_collapseMode="parallax" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/recipient_preference_scrim_top"
+            app:layout_collapseMode="pin" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@drawable/recipient_preference_scrim_bottom" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewCustomTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            android:textColor="@color/md_white_1000"
+            android:textSize="18sp"
+            tools:text="Burgers" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewCustomDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:gravity="start"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/md_white_1000"
+            android:textStyle="italic"
+            tools:text="Buy 1 get i free" />
+
+    </RelativeLayout>
+</ScrollView>

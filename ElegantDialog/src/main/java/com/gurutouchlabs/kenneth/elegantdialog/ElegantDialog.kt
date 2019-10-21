@@ -11,6 +11,7 @@ import android.view.View
 import android.view.Window
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -21,38 +22,35 @@ import kotlinx.android.synthetic.main.dialog_elegant.*
  */
 class ElegantDialog(private val mContext: Context?) {
 
-    var iconDrawable: Drawable? = null
-        private set
+    private var cornerRadius: Float = 50f
+
+    private var cancelledOnTouchOutside: Boolean = false
+
+    private var useCustomLayout: Boolean = false
+
+    private var hideTitle: Boolean = false
+
+    private var titleIcon: Drawable? = null
 
     private var titleIconColor: Int = Color.BLACK
 
-    private var positiveIconColor: Int = Color.BLACK
-
-    private var negativeIconColor: Int = Color.BLACK
-
-    private var gotItIconColor: Int = Color.BLACK
-
-    private var title: String = ""
+    private var titleIconBackgroundColor: Int = Color.WHITE
 
     private var backgroundTopColor: Int = Color.RED
 
     private var backgroundBottomColor: Int = Color.WHITE
 
-    private var description: String = ""
-
-    private var content: String = ""
-
-
     private var imageViewIcon: ImageView? = null
     private var textViewTitle: TextView? = null
-    private var textViewDescription: TextView? = null
+
     private var textViewContent: TextView? = null
 
     private var linearLayoutPositive: LinearLayout? = null
     private var linearLayoutNegative: LinearLayout? = null
     private var linearLayoutGotIt: LinearLayout? = null
-    private var linearLayoutRootTop: LinearLayout? = null
+    private var linearLayoutRootTop: RelativeLayout? = null
     private var linearLayoutRootBottom: LinearLayout? = null
+    private var linearLayoutRootDescription: LinearLayout? = null
     private var textViewPositive: TextView? = null
     private var textViewNegative: TextView? = null
     private var textViewGotIt: TextView? = null
@@ -62,38 +60,37 @@ class ElegantDialog(private val mContext: Context?) {
     private var imageViewGotIt: ImageView? = null
 
 
-    private var positiveButtonText: String = ""
-
-    private var positiveButtonIcon: Drawable? = null
-
-    private var negativeButtonText: String = ""
-
-    private var negativeButtonIcon: Drawable? = null
-
-    private var gotItButtonText: String = ""
-
-    private var gotItIcon: Drawable? = null
-
     private val mDialog: Dialog?
 
     private var elegantActionListener: ElegantActionListeners? = null
 
+    private var customView: View? = null
+
     init {
 
-        mDialog = Dialog(mContext, R.style.ElegantDialog_Theme_Dialog)
+        mDialog = Dialog(mContext!!, R.style.ElegantDialog_Theme_Dialog)
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         mDialog.setContentView(R.layout.dialog_elegant)
-        mDialog.setCanceledOnTouchOutside(false)
+    }
 
+    fun setCustomView(layout: Int): ElegantDialog {
+        if (mDialog != null && mContext != null) {
+            val stub = mDialog.layoutStub
+            stub.layoutResource = layout
+            customView = stub.inflate()
+            useCustomLayout = true
+        }
+        return this
     }
 
     private fun initiateAllViews() {
         imageViewIcon = mDialog!!.imageViewIcon
         textViewTitle = mDialog.textViewTitle
-        textViewDescription = mDialog.textViewDescription
         textViewContent = mDialog.textViewContent
-        linearLayoutRootTop = mDialog.linearLayoutRootTop
+        linearLayoutRootTop = mDialog.relativeLayoutDialogRoot
+
         linearLayoutRootBottom = mDialog.linearLayoutRootBottom
+        linearLayoutRootDescription = mDialog.linearLayoutDescription
         linearLayoutPositive = mDialog.linearLayoutPositive
         linearLayoutNegative = mDialog.linearLayoutNegative
         linearLayoutGotIt = mDialog.linearLayoutGotIt
@@ -106,27 +103,32 @@ class ElegantDialog(private val mContext: Context?) {
         imageViewPositive = mDialog.imageViewPositive
         imageViewNegative = mDialog.imageViewNegative
         imageViewGotIt = mDialog.imageViewGotIt
+        if (useCustomLayout) {
+            linearLayoutRootDescription!!.visibility = View.GONE
+        } else {
+            linearLayoutRootDescription!!.visibility = View.VISIBLE
+        }
     }
 
     private fun initiateListeners() {
 
-        linearLayoutPositive!!.setOnClickListener(View.OnClickListener {
+        linearLayoutPositive!!.setOnClickListener {
             this.onPositiveFeedbackClicked(
                 it
             )
-        })
+        }
 
-        linearLayoutNegative!!.setOnClickListener(View.OnClickListener {
+        linearLayoutNegative!!.setOnClickListener {
             this.onNegativeFeedbackClicked(
                 it
             )
-        })
+        }
 
-        linearLayoutGotIt!!.setOnClickListener(View.OnClickListener {
-            this.onAmbiguityFeedbackClicked(
+        linearLayoutGotIt!!.setOnClickListener {
+            this.onGotItFeedbackClicked(
                 it
             )
-        })
+        }
 
         mDialog?.setOnCancelListener { this.onCancelListener(it) }
     }
@@ -135,121 +137,61 @@ class ElegantDialog(private val mContext: Context?) {
         if (mDialog != null && mContext != null) {
             initiateAllViews()
             initiateListeners()
-
-            val layerDrawable =
-                ContextCompat.getDrawable(mContext, R.drawable.elegant_round_icon) as LayerDrawable
-            val gradientDrawable =
-                layerDrawable.findDrawableByLayerId(R.id.round_background) as GradientDrawable
-            gradientDrawable.setColor(Color.WHITE)
-            layerDrawable.setDrawableByLayerId(R.id.round_background, gradientDrawable)
-
-            val drawable = this.iconDrawable
-            DrawableCompat.setTint(drawable!!.mutate(), titleIconColor)
-            layerDrawable.setDrawableByLayerId(R.id.drawable_image, drawable)
-
-            imageViewIcon!!.setImageDrawable(layerDrawable)
-            textViewTitle!!.text = this.title
-            textViewDescription!!.text = this.description
-            textViewContent!!.text = this.content
-
-            textViewPositive!!.text = this.positiveButtonText
-            imageViewPositive!!.setImageDrawable(this.positiveButtonIcon)
-            imageViewPositive!!.setColorFilter(titleIconColor)
-
-            textViewNegative!!.text = this.negativeButtonText
-            imageViewNegative!!.setImageDrawable(this.negativeButtonIcon)
-            imageViewNegative!!.setColorFilter(titleIconColor)
-
-            textViewGotIt!!.text = this.gotItButtonText
-            imageViewGotIt!!.setImageDrawable(this.gotItIcon)
-            imageViewGotIt!!.setColorFilter(titleIconColor)
-
-            linearLayoutRootTop!!.setBackgroundColor(this.backgroundTopColor)
-            linearLayoutRootBottom!!.setBackgroundColor(this.backgroundBottomColor)
+            if(this.titleIcon!=null) {
+                val layerDrawable =
+                    ContextCompat.getDrawable(
+                        mContext,
+                        R.drawable.elegant_round_icon
+                    ) as LayerDrawable
+                val gradientDrawable =
+                    layerDrawable.findDrawableByLayerId(R.id.round_background) as GradientDrawable
+                gradientDrawable.setColor(titleIconBackgroundColor)
+                layerDrawable.setDrawableByLayerId(R.id.round_background, gradientDrawable)
+                DrawableCompat.setTint(this.titleIcon!!, titleIconColor)
+                layerDrawable.setDrawableByLayerId(R.id.drawable_image, this.titleIcon!!)
+                imageViewIcon!!.setImageDrawable(layerDrawable)
+            }
+            textViewTitle!!.visibility = if (hideTitle) View.GONE else View.VISIBLE
+            if (useCustomLayout) {
+                customView!!.setBackgroundColor(this.backgroundTopColor)
+            } else {
+                linearLayoutRootDescription!!.setBackgroundColor(this.backgroundTopColor)
+            }
+            val gradientTopDrawable=linearLayoutRootTop!!.background as GradientDrawable
+            gradientTopDrawable.cornerRadii= floatArrayOf(cornerRadius,cornerRadius,cornerRadius,cornerRadius,0f,0f,0f,0f)
+            gradientTopDrawable.setColor(this.backgroundTopColor)
+            linearLayoutRootTop!!.background=gradientTopDrawable
+            val gradientBottomDrawable=linearLayoutRootBottom!!.background as GradientDrawable
+            gradientBottomDrawable.cornerRadii= floatArrayOf(0f,0f,0f,0f,cornerRadius,cornerRadius,cornerRadius,cornerRadius)
+            gradientBottomDrawable.setColor(this.backgroundBottomColor)
+            linearLayoutRootBottom!!.background=gradientBottomDrawable
+            mDialog.setCanceledOnTouchOutside(cancelledOnTouchOutside)
             mDialog.show()
         }
         return this
     }
 
-    fun setIconDrawable(iconDrawable: Drawable): ElegantDialog {
-        this.iconDrawable = iconDrawable
+    fun setTitleIcon(titleIcon: Drawable): ElegantDialog {
+        this.titleIcon = titleIcon
         return this
     }
 
-    fun getTitle(): String {
-        return title
+    fun getTitleIconColor(): Int {
+        return titleIconColor
     }
 
-    fun setTitle(title: String): ElegantDialog {
-        this.title = title
+    fun setTitleIconColor(titleIconColor: Int): ElegantDialog {
+        this.titleIconColor = titleIconColor
         return this
     }
 
-    fun getDescription(): String {
-        return description
+    fun getTitleIconBackgroundColor(): Int {
+        return titleIconBackgroundColor
     }
 
-    fun setDescription(description: String): ElegantDialog {
-        this.description = description
+    fun setTitleIconBackgroundColor(titleIconBackgroundColor: Int): ElegantDialog {
+        this.titleIconBackgroundColor= titleIconBackgroundColor
         return this
-    }
-
-    fun getPositiveButtonText(): String {
-        return positiveButtonText
-    }
-
-    fun setPositiveButtonText(positiveButtonText: String): ElegantDialog {
-        this.positiveButtonText = positiveButtonText
-        return this
-    }
-
-    fun getPositiveFeedbackIcon(): Drawable? {
-        return positiveButtonIcon
-    }
-
-    fun setPositiveButtonIcon(positiveButtonIcon: Drawable): ElegantDialog {
-        this.positiveButtonIcon = positiveButtonIcon
-        return this
-    }
-
-    fun getNegativeButtonText(): String {
-        return negativeButtonText
-    }
-
-    fun setNegativeButtonText(negativeButtonText: String): ElegantDialog {
-        this.negativeButtonText = negativeButtonText
-        return this
-    }
-
-    fun getNegativeButtonIcon(): Drawable? {
-        return negativeButtonIcon
-    }
-
-    fun setNegativeButtonIcon(negativeButtonIcon: Drawable): ElegantDialog {
-        this.negativeButtonIcon = negativeButtonIcon
-        return this
-    }
-
-    fun getGotItButtonText(): String {
-        return gotItButtonText
-    }
-
-    fun setGotItButtonText(gotItButtonText: String): ElegantDialog {
-        this.gotItButtonText = gotItButtonText
-        return this
-    }
-
-    fun getGotItIcon(): Drawable? {
-        return gotItIcon
-    }
-
-    fun setGotItIcon(gotItIcon: Drawable): ElegantDialog {
-        this.gotItIcon = gotItIcon
-        return this
-    }
-
-    fun getBackgroundTopColor(): Int {
-        return backgroundTopColor
     }
 
     fun setBackgroundTopColor(backgroundTopColor: Int): ElegantDialog {
@@ -266,22 +208,57 @@ class ElegantDialog(private val mContext: Context?) {
         return this
     }
 
-    fun getTitleIconColor(): Int {
-        return titleIconColor
+    fun getTitleIconView(): ImageView? {
+        return imageViewIcon
     }
 
-    fun setTitleIconColor(titleIconColor: Int): ElegantDialog {
-        this.titleIconColor = titleIconColor
-        return this
+    fun getTitleTextView(): TextView? {
+        return textViewTitle
     }
 
-    fun getContent(): String {
-        return content
+
+    fun getContentTextView(): TextView? {
+        return textViewContent
     }
 
-    fun setContent(content: String): ElegantDialog {
-        this.content = content
-        return this
+    fun getPositiveButtonIconView(): ImageView? {
+        return imageViewPositive
+    }
+
+    fun getNegativeButtonIconView(): ImageView? {
+        return imageViewNegative
+    }
+
+    fun getGotItButtonIconView(): ImageView? {
+        return imageViewGotIt
+    }
+
+    fun getPositiveButtonTextView(): TextView? {
+        return textViewPositive
+    }
+
+    fun getNegativeButtonTextView(): TextView? {
+        return textViewNegative
+    }
+
+    fun getGotItButtonTextView(): TextView? {
+        return textViewGotIt
+    }
+
+    fun getPositiveButton(): LinearLayout? {
+        return linearLayoutPositive
+    }
+
+    fun getNegativeButton(): LinearLayout? {
+        return linearLayoutNegative
+    }
+
+    fun getGotItButton(): LinearLayout? {
+        return linearLayoutGotIt
+    }
+
+    fun getCustomView(): View? {
+        return customView
     }
 
     fun setElegantActionClickListener(elegantActionListener: ElegantActionListeners): ElegantDialog {
@@ -293,8 +270,20 @@ class ElegantDialog(private val mContext: Context?) {
         mDialog?.dismiss()
     }
 
-    fun setCanceledOnTouchOutside(dismiss: Boolean) {
-        mDialog!!.setCanceledOnTouchOutside(dismiss)
+
+    fun setCanceledOnTouchOutside(cancelledOnTouchOutside: Boolean): ElegantDialog {
+        this.cancelledOnTouchOutside = cancelledOnTouchOutside
+        return this
+    }
+
+    fun setTitleHidden(hideTitle: Boolean): ElegantDialog {
+        this.hideTitle = hideTitle
+        return this
+    }
+
+    fun setCornerRadius(cornerRadius: Float): ElegantDialog {
+        this.cornerRadius = cornerRadius
+        return this
     }
 
     private fun onPositiveFeedbackClicked(view: View) {
@@ -309,7 +298,7 @@ class ElegantDialog(private val mContext: Context?) {
         }
     }
 
-    private fun onAmbiguityFeedbackClicked(view: View) {
+    private fun onGotItFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onGotItListener(this)
         }
@@ -319,5 +308,9 @@ class ElegantDialog(private val mContext: Context?) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onCancelListener(dialog)
         }
+    }
+    fun dpToPx(context: Context, dp: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return Math.round(dp * scale)
     }
 }

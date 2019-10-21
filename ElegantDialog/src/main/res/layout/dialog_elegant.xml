@@ -12,7 +12,7 @@
         <RelativeLayout
             android:id="@+id/relativeLayoutTransparent"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:background="@android:color/transparent">
 
         </RelativeLayout>
@@ -21,72 +21,78 @@
             android:id="@+id/relativeLayoutDialogRoot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeLayoutTransparent">
+            android:layout_below="@+id/relativeLayoutTransparent"
+            android:background="@drawable/elegant_dialog_rounded_corners_top"
+            android:minHeight="125dp">
 
-            <LinearLayout
-                android:id="@+id/linearLayoutRootTop"
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="0dp"
+                android:adjustViewBounds="true"
+                android:elevation="5dp"
+                android:src="@drawable/elegant_round_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/md_white_1000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ViewStub
+                android:id="@+id/layoutStub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="125dp"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textViewTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:ellipsize="marquee"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/md_white_1000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/textViewDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:ellipsize="marquee"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textColor="@color/md_white_1000"
-                    android:textSize="12sp"
-                    tools:text="Could you check out our new product?" />
+            <LinearLayout
+                android:id="@+id/linearLayoutDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textViewContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:textColor="@color/md_white_1000"
                     android:textSize="18sp"
                     tools:text="We have a new app we just released on our beta channel. Would be great if you gave it a look?" />
-
             </LinearLayout>
-        </RelativeLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageViewIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_above="@+id/relativeLayoutDialogRoot"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginBottom="-20dp"
-            android:adjustViewBounds="true"
-            android:elevation="5dp"
-            android:src="@drawable/elegant_round_icon" />
-
+        </LinearLayout>
     </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayoutRootBottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#FFF"
+        android:background="@drawable/elegant_dialog_rounded_corners_bottom"
+        android:baselineAligned="true"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -176,9 +182,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="#000"
-                tools:text="GOT IT"
-
-                />
+                tools:text="GOT IT" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

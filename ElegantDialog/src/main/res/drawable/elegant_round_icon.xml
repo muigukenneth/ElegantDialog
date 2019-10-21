@@ -12,7 +12,7 @@
     </item>
     <item
         android:id="@+id/drawable_image"
-        android:drawable="@drawable/ic_person_large"
+        android:drawable="@drawable/elegant_ic_person_large"
         android:bottom="20dp"
         android:left="20dp"
         android:right="20dp"

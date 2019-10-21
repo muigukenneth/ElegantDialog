@@ -1,19 +1,21 @@
 # ElegantDialog
 [![Build status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)](https://app.nevercode.io/#/project/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflow/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/latestBuild?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d75aa2085d94288bdefda48e3a518ca)](https://www.codacy.com/manual/muigukenneth/ElegantDialog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muigukenneth/ElegantDialog&amp;utm_campaign=Badge_Grade)
+[![License](https://img.shields.io/github/issues/muigukenneth/ElegantDialog)
 
 ## Download
 ```gradle
-      allprojects {
-	    repositories {
-			...
-			maven { url 'https://jitpack.io' }
-        }
-	   }
-     
-
-      dependencies {
-              implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
+ allprojects {
+   repositories {
+	...
+	 maven { url 'https://jitpack.io' }
       }
+ }
+     
+dependencies {
+  ...
+  implementation 'com.github.muigukenneth:ElegantDialog:1.0.1'
+}
  ``` 
 ## Features
  * Top background customization
