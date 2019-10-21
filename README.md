@@ -3,10 +3,17 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d75aa2085d94288bdefda48e3a518ca)](https://www.codacy.com/manual/muigukenneth/ElegantDialog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muigukenneth/ElegantDialog&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
-
-![Showcase][1]
-
+[![API](https://img.shields.io/badge/API-22%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=22)
+```html
+<p align="left">
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px" />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_2New.png" width="400px" />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_3New.png" width="400px" />
+</p>
+ ``` 
 ## Download
+
+Quickly add the dependencies:
 ```gradle
  allprojects {
    repositories {
@@ -21,7 +28,8 @@ dependencies {
 }
  ``` 
 ## Features
--------------------
+
+Simple use cases will look something like this:
  * Top background customization
  * Bottom background customization
  * Custom layout
@@ -31,7 +39,7 @@ dependencies {
  * Custom fonts (title and content)
  
 ## How to use ElegantDialog
--------------------
+
 Simple use cases will look something like this:
 ```kotlin
      val dialog = ElegantDialog(context)
@@ -106,8 +114,9 @@ Simple use cases will look something like this:
             
 ``` 
 ### Pull requests are welcome!
--------------------
-Feel free to contribute to ElegantDialog.
 
-If you want to fix a bug or want to add a feature, just create a pull request.
+Feel free to contribute to ElegantDialog. Just create a pull request for:
+* Bug fixes
+* New features
+* Code optimizations
 
