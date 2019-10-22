@@ -12,7 +12,7 @@
 </p>
   
 ## Download
-
+ [ ![Download](https://api.bintray.com/packages/chiefdroid/ElegantDialog/ElegantDialog/images/download.svg) ](https://bintray.com/chiefdroid/ElegantDialog/ElegantDialog/_latestVersion)
 Easily add the dependencies:
 ```gradle
  allprojects {
