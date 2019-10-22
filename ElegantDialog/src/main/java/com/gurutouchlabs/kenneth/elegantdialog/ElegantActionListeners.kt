@@ -5,7 +5,7 @@ import android.content.DialogInterface
 
 
 /**
- * Created by Shivasurya S on 13/01/18.
+ * Created by Kenneth Waweru on 17/10/2019.
  */
 interface ElegantActionListeners {
     fun onPositiveListener(dialog: ElegantDialog)
