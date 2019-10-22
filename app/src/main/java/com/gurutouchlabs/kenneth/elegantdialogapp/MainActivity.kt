@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import jp.co.cyberagent.android.tabanimation.*
 import kotlinx.android.synthetic.main.activity_main.*
-
+/**
+ * Created by Kenneth Waweru on 21/10/2019.
+ */
 class MainActivity : AppCompatActivity() {
     private var adapter: FragmentStateAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.row_your_pick.view.*
 
 
 /**
- * Created by Ahmed Adel on 5/8/17.
+ * Created by Kenneth Waweru on 21/10/2019.
  */
 
 class YourPickAdapter(private val context: Context, private val picks: List<Int>) :
