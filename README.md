@@ -1,6 +1,7 @@
 # ElegantDialog
 [![Build status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)](https://app.nevercode.io/#/project/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflow/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/latestBuild?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d75aa2085d94288bdefda48e3a518ca)](https://www.codacy.com/manual/muigukenneth/ElegantDialog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muigukenneth/ElegantDialog&amp;utm_campaign=Badge_Grade)
+[![](https://jitpack.io/v/muigukenneth/ElegantDialog.svg)](https://jitpack.io/#muigukenneth/ElegantDialog)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Elegant%20Dialog-red.svg?style=flat)](https://android-arsenal.com/details/1/7922)
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
@@ -10,11 +11,13 @@
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px"  />
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_3New.png" width="400px"  />
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_2New.png" width="400px"  />
+<img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_4New.png" width="400px"  />
 </p>
   
 ## Download
 [ ![Download](https://api.bintray.com/packages/chiefdroid/ElegantDialog/ElegantDialog/images/download.svg) ](https://bintray.com/chiefdroid/ElegantDialog/ElegantDialog/_latestVersion)
- 
+[![](https://jitpack.io/v/muigukenneth/ElegantDialog.svg)](https://jitpack.io/#muigukenneth/ElegantDialog)
+
 Easily add the dependencies:
 ```gradle
  allprojects {
@@ -31,14 +34,15 @@ dependencies {
  ``` 
 ## Features
 
-Simple use cases will look something like this:
+Here are some fancy stuff:
  * Top background customization
  * Bottom background customization
- * Custom layout
+ * Custom layout(RecyclerView etc)
  * Custom icons(buttons and title)
  * Color customizations (Icons and Text)
  * Text customizations (Buttons, title and content)
  * Custom fonts (title and content)
+ * Image loading using Glide or Picasso
  
 ## How to use ElegantDialog
 
