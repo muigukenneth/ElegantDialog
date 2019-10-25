@@ -35,14 +35,14 @@ dependencies {
 ## Features
 
 Here are some fancy stuff:
- *Top background customization
- *Bottom background customization
- *Custom layout(RecyclerView etc)
- *Custom icons(buttons and title)
- *Color customizations (Icons and Text)
- *Text customizations (Buttons, title and content)
- *Custom fonts (title and content)
- *Image loading using Glide or Picasso
+* Top background customization
+* Bottom background customization
+* Custom layout(RecyclerView etc)
+* Custom icons(buttons and title)
+* Color customizations (Icons and Text)
+* Text customizations (Buttons, title and content)
+* Custom fonts (title and content)
+* Image loading using Glide or Picasso
  
 ## How to use ElegantDialog
 
@@ -84,7 +84,8 @@ Simple use cases looks like this:
               
             // Now for the title, content and buttons customisations
             if (dialog.getTitleIconView() != null) {
-                // You can use glide or picasso to display your own title image. Note Do not pass an icon drawable at setTitleIcon(titleIcon)
+                // You can use glide or picasso to display your own title image.
+                // Please Note do not pass an icon drawable at setTitleIcon(titleIcon)
                 val imageUrl = R.drawable.face
                 Glide.with(this).load(imageUrl)
                     .transition(ImageUtils.requestAvatarTransitionOptions())
@@ -140,7 +141,7 @@ If you want to achieve button left and right gravity :
 ### Pull requests are welcome!
 
 Feel free to contribute to ElegantDialog. Just create a pull request for:
-*Bug fixes
-*New features
-*Code optimizations
+* Bug fixes
+* New features
+* Code optimizations
 

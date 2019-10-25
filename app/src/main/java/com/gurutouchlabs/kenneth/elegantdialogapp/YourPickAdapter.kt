@@ -51,6 +51,7 @@ class YourPickAdapter(private val context: Context, private val picks: List<Int>
 
     /** Set up the click listener interface.*/
     interface YourPickClickListener {
+        /** Called when you click on view.*/
         fun onYourPickClickListener(colorCode: Int)
     }
 }

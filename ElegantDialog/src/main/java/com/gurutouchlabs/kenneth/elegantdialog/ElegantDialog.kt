@@ -73,7 +73,8 @@ class ElegantDialog(private val mContext: Context?) {
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         mDialog.setContentView(R.layout.dialog_elegant)
     }
-
+    /** Set Your custom View.
+     * Can be any type of view we will compensate the min height*/
     fun setCustomView(layout: Int): ElegantDialog {
         if (mDialog != null && mContext != null) {
             val stub = mDialog.layoutStub

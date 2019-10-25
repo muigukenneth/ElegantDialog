@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setUpTabViewPager()
         viewPager.offscreenPageLimit = 2
     }
-    /** Set up the ViewPager.*/
+
     private fun setUpViewPager() {
         val fragments = ArrayList<Fragment>()
         fragments.add(DefaultDialogFragment())
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
         viewPager.adapter = adapter
     }
-    /** Set up the tabView.*/
+
     private fun setUpTabViewPager() {
         val titles = ArrayList<String>()
         titles.add(resources.getString(R.string.default_dialog))
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             tab.text = titles[pos]
         }
     }
-    /** Set up tabView Animation.*/
+
     private fun animationInfo(color: Int): ViewIdAnimationInfoSet =
         viewIdAnimationInfo {
             animateText<Float> {
