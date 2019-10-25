@@ -5,7 +5,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Elegant%20Dialog-red.svg?style=flat)](https://android-arsenal.com/details/1/7922)
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
-[![API](https://img.shields.io/badge/API-22%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=22)
+[![API](https://img.shields.io/badge/API-18%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=18)
 
 <p align="left">
 <img src="https://raw.githubusercontent.com/muigukenneth/ElegantDialog/master/art/Screenshot_1New.png" width="400px"  />
@@ -35,21 +35,21 @@ dependencies {
 ## Features
 
 Here are some fancy stuff:
- * Top background customization
- * Bottom background customization
- * Custom layout(RecyclerView etc)
- * Custom icons(buttons and title)
- * Color customizations (Icons and Text)
- * Text customizations (Buttons, title and content)
- * Custom fonts (title and content)
- * Image loading using Glide or Picasso
+ *Top background customization
+ *Bottom background customization
+ *Custom layout(RecyclerView etc)
+ *Custom icons(buttons and title)
+ *Color customizations (Icons and Text)
+ *Text customizations (Buttons, title and content)
+ *Custom fonts (title and content)
+ *Image loading using Glide or Picasso
  
 ## How to use ElegantDialog
 
-Simple use cases will look something like this:
+Simple use cases looks like this:
 ```kotlin
      val dialog = ElegantDialog(context)
-                .setTitleIcon(titleIcon)//Set title icon drawable
+                .setTitleIcon(titleIcon)//Set title icon drawable if your not loading with Glide or Picasso
                 .setTitleIconBackgroundColor(backgroundIconColor) //Set title icon drawable background color
                 .setBackgroundTopColor(backgroundTopColor)// Set top color
                 .setBackgroundBottomColor(backgroundBottomColor) // Set bottom color
@@ -84,7 +84,7 @@ Simple use cases will look something like this:
               
             // Now for the title, content and buttons customisations
             if (dialog.getTitleIconView() != null) {
-                // You can use glide or picasso to display your own title image
+                // You can use glide or picasso to display your own title image. Note Do not pass an icon drawable at setTitleIcon(titleIcon)
                 val imageUrl = R.drawable.face
                 Glide.with(this).load(imageUrl)
                     .transition(ImageUtils.requestAvatarTransitionOptions())
@@ -119,10 +119,28 @@ Simple use cases will look something like this:
             }
             
 ``` 
+If you want to achieve button left and right gravity :
+```kotlin
+             //Right Gravity button use got it button for clicks and customization
+                dialog.getPositiveButtonIconView()!!.visibility =  View.GONE 
+                dialog.getPositiveButtonTextView()!!.visibility =  View.GONE
+                dialog.getNegativeButtonIconView()!!.visibility =  View.GONE 
+                dialog.getNegtaiveButtonTextView()!!.visibility =  View.GONE
+                dialog.getGotItButtonIconView()!!.visibility =  View.VISIBLE 
+                dialog.getGotItButtonTextView()!!.visibility =  View.VISIBLE
+                
+               //Left Gravity button use positive button for clicks and customization
+                dialog.getPositiveButtonIconView()!!.visibility =  View.VISIBLE 
+                dialog.getPositiveButtonTextView()!!.visibility =  View.VISIBLE
+                dialog.getNegativeButtonIconView()!!.visibility =  View.GONE 
+                dialog.getNegativeButtonTextView()!!.visibility =  View.GONE
+                dialog.getGotItButtonIconView()!!.visibility =  View.GONE 
+                dialog.getGotItButtonTextView()!!.visibility =  View.GONE
+``` 
 ### Pull requests are welcome!
 
 Feel free to contribute to ElegantDialog. Just create a pull request for:
-* Bug fixes
-* New features
-* Code optimizations
+*Bug fixes
+*New features
+*Code optimizations
 

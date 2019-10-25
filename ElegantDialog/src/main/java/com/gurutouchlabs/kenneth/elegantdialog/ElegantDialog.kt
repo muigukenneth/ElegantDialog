@@ -65,9 +65,10 @@ class ElegantDialog(private val mContext: Context?) {
     private var elegantActionListener: ElegantActionListeners? = null
 
     private var customView: View? = null
-
+    /**
+     * Initialize the Dialog
+     */
     init {
-
         mDialog = Dialog(mContext!!, R.style.ElegantDialog_Theme_Dialog)
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         mDialog.setContentView(R.layout.dialog_elegant)
@@ -82,7 +83,8 @@ class ElegantDialog(private val mContext: Context?) {
         }
         return this
     }
-
+    /** Initialize the Views.
+     * All views will be accessed here*/
     private fun initiateAllViews() {
         imageViewIcon = mDialog!!.imageViewIcon
         textViewTitle = mDialog.textViewTitle
@@ -110,8 +112,9 @@ class ElegantDialog(private val mContext: Context?) {
         }
     }
 
+    /** Initialize the listeners.
+     * We need them to monitor clicks*/
     private fun initiateListeners() {
-
         linearLayoutPositive!!.setOnClickListener {
             this.onPositiveFeedbackClicked(
                 it
@@ -133,6 +136,8 @@ class ElegantDialog(private val mContext: Context?) {
         mDialog?.setOnCancelListener { this.onCancelListener(it) }
     }
 
+    /** Show the dialog.
+     * Lets now get everything connected so we display the Dialog as quickly as possible */
     fun show(): ElegantDialog {
         if (mDialog != null && mContext != null) {
             initiateAllViews()
@@ -170,147 +175,201 @@ class ElegantDialog(private val mContext: Context?) {
         }
         return this
     }
-
+    /** Set the Title icon drawable.
+     * Only allows a drawable but you can load your own image using @getTitleIconView() if you opt so
+     * don't call this method */
     fun setTitleIcon(titleIcon: Drawable): ElegantDialog {
         this.titleIcon = titleIcon
         return this
     }
 
-    fun getTitleIconColor(): Int {
-        return titleIconColor
-    }
-
+    /** Set the title Icon drawable color.
+     * Will only applied if you pass an icon @setTitleIcon()  */
     fun setTitleIconColor(titleIconColor: Int): ElegantDialog {
         this.titleIconColor = titleIconColor
         return this
     }
 
-    fun getTitleIconBackgroundColor(): Int {
-        return titleIconBackgroundColor
+    /** Get the title Icon color.
+     * Color is an Int */
+    fun getTitleIconColor(): Int {
+        return titleIconColor
     }
 
+    /** Set the title Icon background color. This is the circular area where the title icon lies
+     * Will only applied if you pass an icon @setTitleIcon()  */
     fun setTitleIconBackgroundColor(titleIconBackgroundColor: Int): ElegantDialog {
         this.titleIconBackgroundColor= titleIconBackgroundColor
         return this
     }
 
+    /** Get the title Icon background color.
+     * Color is an Int */
+    fun getTitleIconBackgroundColor(): Int {
+        return titleIconBackgroundColor
+    }
+
+    /** Set the Background Top color.
+     * The Dialog is split into two and Color has to be an Int */
     fun setBackgroundTopColor(backgroundTopColor: Int): ElegantDialog {
         this.backgroundTopColor = backgroundTopColor
         return this
     }
 
-    fun getBackgroundBottomColor(): Int {
-        return backgroundBottomColor
+    /** Get the Top bottom color.
+     * The Dialog is split into two and Color is an Int */
+    fun getBackgroundTopColor(): Int {
+        return backgroundTopColor
     }
 
+    /** Set the Background bottom color.
+     * The Dialog is split into two and Color has to be an Int */
     fun setBackgroundBottomColor(backgroundBottomColor: Int): ElegantDialog {
         this.backgroundBottomColor = backgroundBottomColor
         return this
     }
 
+    /** Get the Background bottom color.
+     * The Dialog is split into two and Color is an Int */
+    fun getBackgroundBottomColor(): Int {
+        return backgroundBottomColor
+    }
+
+    /** Get the content ImageView for customization e.g load image using Glide or Picasso
+     * (recommended you handle the image transformation to be circular to maintain the design).
+     * You can do anything you want like you normally do with other ImageViews */
     fun getTitleIconView(): ImageView? {
         return imageViewIcon
     }
 
+    /** Get the title TextView for customization.
+     * You can do anything you want like you normally do with other TextViews */
     fun getTitleTextView(): TextView? {
         return textViewTitle
     }
 
-
+    /** Get the content TextView for customization.
+     * You can do anything you want like you normally do with other TextViews */
     fun getContentTextView(): TextView? {
         return textViewContent
     }
 
+    /** Get the positive button ImageView for customization.
+     * You can do anything you want like you normally do with other ImageViews*/
     fun getPositiveButtonIconView(): ImageView? {
         return imageViewPositive
     }
 
+    /** Get the negative button ImageView for customization.
+     * You can do anything you want like you normally do with other ImageViews*/
     fun getNegativeButtonIconView(): ImageView? {
         return imageViewNegative
     }
 
+    /** Get the got it button ImageView for customization.
+     * You can do anything you want like you normally do with other ImageViews*/
     fun getGotItButtonIconView(): ImageView? {
         return imageViewGotIt
     }
 
+    /** Get the positive button TextView for customization.
+     * You can do anything you want like you normally do with other TextViews*/
     fun getPositiveButtonTextView(): TextView? {
         return textViewPositive
     }
 
+    /** Get the negative button TextView for customization.
+     * You can do anything you want like you normally do with other TextViews*/
     fun getNegativeButtonTextView(): TextView? {
         return textViewNegative
     }
 
+    /** Get the got it button TextView for customization.
+     * You can do anything you want like you normally do with other TextViews*/
     fun getGotItButtonTextView(): TextView? {
         return textViewGotIt
     }
 
+    /** Get the positive button View for customization.
+     * You can do anything you want like you normally do with other View e.g hide and change click effect*/
     fun getPositiveButton(): LinearLayout? {
         return linearLayoutPositive
     }
 
+    /** Get the negative button View for customization.
+     * You can do anything you want like you normally do with other View e.g hide and change click effect*/
     fun getNegativeButton(): LinearLayout? {
         return linearLayoutNegative
     }
 
+    /** Get the got it button View for customization.
+     * You can do anything you want like you normally do with other View e.g hide and change click effect*/
     fun getGotItButton(): LinearLayout? {
         return linearLayoutGotIt
     }
 
+    /** Get the custom View for initialization and customization.
+     * You can access you parent views from here. You mast pass a View @setContentView() or this will return null*/
     fun getCustomView(): View? {
         return customView
     }
 
+    /** Set the click listeners.
+     * I have defined them for you */
     fun setElegantActionClickListener(elegantActionListener: ElegantActionListeners): ElegantDialog {
         this.elegantActionListener = elegantActionListener
         return this
     }
 
+    /** Dismiss the Dialog.
+     * This is a manual dismiss method you can also set @setCanceledOnTouchOutside() to dismiss it on touch outside */
     fun dismiss() {
         mDialog?.dismiss()
     }
 
-
+    /** Set if setCanceledOnTouchOutside behaviour .
+     * Just like a typical Dialog */
     fun setCanceledOnTouchOutside(cancelledOnTouchOutside: Boolean): ElegantDialog {
         this.cancelledOnTouchOutside = cancelledOnTouchOutside
         return this
     }
 
+    /** Set if the Title text should be hidden.
+     * Maybe you want to implement your own title in a custom layout */
     fun setTitleHidden(hideTitle: Boolean): ElegantDialog {
         this.hideTitle = hideTitle
         return this
     }
 
+    /** Set corner radius for the corners.
+     * The Default radius is 50f */
     fun setCornerRadius(cornerRadius: Float): ElegantDialog {
         this.cornerRadius = cornerRadius
         return this
     }
-
+    /** On positive click Listener.*/
     private fun onPositiveFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onPositiveListener(this)
         }
     }
-
+    /** On negative click Listener.*/
     private fun onNegativeFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onNegativeListener(this)
         }
     }
-
+    /** On GotIt click Listener.*/
     private fun onGotItFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onGotItListener(this)
         }
     }
-
+    /** On Cancel click Listener.*/
     private fun onCancelListener(dialog: DialogInterface) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onCancelListener(dialog)
         }
     }
-    fun dpToPx(context: Context, dp: Float): Int {
-        val scale = context.resources.displayMetrics.density
-        return Math.round(dp * scale)
-    }
+
 }

@@ -41,14 +41,15 @@ class YourPickAdapter(private val context: Context, private val picks: List<Int>
         return picks.size
     }
 
-
-
+    /** Set up click listeners.*/
     fun setOnYourPickPickerClickListener(yourPickClickListener: YourPickClickListener) {
         this.yourPickClickListener = yourPickClickListener
     }
 
+    /** Set Up the ViewHolder.*/
      class YourPickViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),LayoutContainer
 
+    /** Set up the click listener interface.*/
     interface YourPickClickListener {
         fun onYourPickClickListener(colorCode: Int)
     }

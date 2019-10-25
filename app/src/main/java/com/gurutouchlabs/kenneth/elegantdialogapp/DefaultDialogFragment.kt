@@ -294,9 +294,6 @@ class DefaultDialogFragment : Fragment() {
                 dialog.getGotItButtonIconView()!!.setImageDrawable(gotItIcon)
                 dialog.getGotItButtonIconView()!!.setColorFilter(gotItIconColor)
                 dialog.getGotItButtonTextView()!!.text = gotItText
-//                dialog.getPositiveButtonIconView()!!.visibility = if (hidePositiveButton) View.GONE else View.VISIBLE
-//                dialog.getNegativeButtonIconView()!!.visibility = if (hideNegativeButton) View.GONE else View.VISIBLE
-//                dialog.getGotItButtonIconView()!!.visibility = if (hideGotItButton) View.GONE else View.VISIBLE
                 dialog.getPositiveButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE
                 dialog.getNegativeButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE
                 dialog.getGotItButtonTextView()!!.visibility = if (hideButtonText) View.GONE else View.VISIBLE
@@ -307,23 +304,10 @@ class DefaultDialogFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
 
 
     companion object {
-        private val ARG_PARAM1 = "param1"
-        private val ARG_PARAM2 = "param2"
-
+        /** Start the Fragment Instance.*/
         fun newInstance(): DefaultDialogFragment {
             val fragment = DefaultDialogFragment()
             val args = Bundle()

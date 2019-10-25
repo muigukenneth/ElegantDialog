@@ -356,8 +356,8 @@ class CustomDialogFragment : Fragment() {
                     contentView.recyclerView.setHasFixedSize(true)
                     val colorPickerAdapter = YourPickAdapter(activity!!, picks)
                     colorPickerAdapter.setOnYourPickPickerClickListener(object : YourPickAdapter.YourPickClickListener {
-                        override fun onYourPickClickListener(resource: Int) {
-
+                        override fun onYourPickClickListener(colorCode: Int) {
+                            /** Do something.*/
                         }
 
                     })
@@ -378,23 +378,9 @@ class CustomDialogFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
 
     companion object {
-        private val ARG_PARAM1 = "param1"
-        private val ARG_PARAM2 = "param2"
-
+        /** Start the Fragment Instance.*/
         fun newInstance(): CustomDialogFragment {
             val fragment = CustomDialogFragment()
             val args = Bundle()
