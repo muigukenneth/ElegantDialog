@@ -1,10 +1,12 @@
 # ElegantDialog
 [![Build status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)](https://app.nevercode.io/#/project/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflow/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/latestBuild?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d75aa2085d94288bdefda48e3a518ca)](https://www.codacy.com/manual/muigukenneth/ElegantDialog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muigukenneth/ElegantDialog&amp;utm_campaign=Badge_Grade)
+[![Known Vulnerabilities](https://snyk.io/test/github/muigukenneth/ElegantDialog/badge.svg?targetFile=ElegantDialog/build.gradle)](https://snyk.io/test/github/muigukenneth/ElegantDialog?targetFile=ElegantDialog/build.gradle)
 [![](https://jitpack.io/v/muigukenneth/ElegantDialog.svg)](https://jitpack.io/#muigukenneth/ElegantDialog)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Elegant%20Dialog-red.svg?style=flat)](https://android-arsenal.com/details/1/7922)
 [![GitHub license](https://img.shields.io/github/license/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/muigukenneth/ElegantDialog)](https://github.com/muigukenneth/ElegantDialog/stargazers)
+[![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
 [![API](https://img.shields.io/badge/API-18%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=18)
 
 <p align="left">
