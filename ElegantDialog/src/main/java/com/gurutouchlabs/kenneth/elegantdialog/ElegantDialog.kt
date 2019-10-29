@@ -24,7 +24,9 @@ class ElegantDialog(private val mContext: Context?) {
 
     //pull request variables
     private var title: String? = null
+    private var content: String? = null
     private var titleColor: Int = Color.WHITE
+    private var contentColor: Int = Color.WHITE
 
     private var cornerRadius: Float = 50f
 
@@ -407,8 +409,28 @@ class ElegantDialog(private val mContext: Context?) {
         return this
     }
 
-    fun initTitleAndContent() {
+    /**
+     * Sets the content text with default white color
+     */
+    fun setContent(content: String): ElegantDialog {
+        this.content = content
+        return this
+    }
+
+    /**
+     * Sets the content text with given color
+     */
+    fun setContent(content: String, contentColor: Int): ElegantDialog {
+        this.setContent(content)
+        this.contentColor = contentColor
+        return this
+    }
+
+    private fun initTitleAndContent() {
         if (this.title != null) textViewTitle!!.text = this.title
         textViewTitle!!.setTextColor(titleColor)
+
+        if(this.content != null) textViewContent!!.text = content
+        textViewContent!!.setTextColor(contentColor)
     }
 }
