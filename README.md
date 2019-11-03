@@ -1,6 +1,5 @@
 # ElegantDialog
 [![Build Status](https://gurutouchlabs.visualstudio.com/Elegant%20Dialog/_apis/build/status/muigukenneth.ElegantDialog?branchName=master)](https://gurutouchlabs.visualstudio.com/Elegant%20Dialog/_build/latest?definitionId=1&branchName=master)
-[![Build status](https://app.nevercode.io/api/projects/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflows/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/status_badge.svg?branch=master)](https://app.nevercode.io/#/project/465bc90f-16e5-4b6d-ab42-7e7d8036ad4f/workflow/62a7ba37-c8a4-4eda-8db1-9908daa93d8e/latestBuild?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d75aa2085d94288bdefda48e3a518ca)](https://www.codacy.com/manual/muigukenneth/ElegantDialog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=muigukenneth/ElegantDialog&amp;utm_campaign=Badge_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/github/muigukenneth/ElegantDialog/badge.svg?targetFile=ElegantDialog/build.gradle)](https://snyk.io/test/github/muigukenneth/ElegantDialog?targetFile=ElegantDialog/build.gradle)
 [![](https://jitpack.io/v/muigukenneth/ElegantDialog.svg)](https://jitpack.io/#muigukenneth/ElegantDialog)
