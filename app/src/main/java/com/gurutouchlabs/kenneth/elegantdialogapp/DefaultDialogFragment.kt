@@ -242,6 +242,8 @@ class DefaultDialogFragment : Fragment() {
                 .setBackgroundBottomColor(backgroundBottomColor)
                 .setCanceledOnTouchOutside(false)
                 .setTitleHidden(false)
+                .setTitle("new colored title")
+                .setContent("this is my content", Color.BLACK)
                 .setElegantActionClickListener(object :
                     ElegantActionListeners {
                     override fun onPositiveListener(dialog: ElegantDialog) {

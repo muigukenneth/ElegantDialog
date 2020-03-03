@@ -22,6 +22,12 @@ import kotlinx.android.synthetic.main.dialog_elegant.*
  */
 class ElegantDialog(private val mContext: Context?) {
 
+    //pull request variables
+    private var title: String? = null
+    private var content: String? = null
+    private var titleColor: Int = Color.WHITE
+    private var contentColor: Int = Color.WHITE
+
     private var cornerRadius: Float = 50f
 
     private var cancelledOnTouchOutside: Boolean = false
@@ -65,6 +71,7 @@ class ElegantDialog(private val mContext: Context?) {
     private var elegantActionListener: ElegantActionListeners? = null
 
     private var customView: View? = null
+
     /**
      * Initialize the Dialog
      */
@@ -73,6 +80,7 @@ class ElegantDialog(private val mContext: Context?) {
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         mDialog.setContentView(R.layout.dialog_elegant)
     }
+
     /** Set Your custom View.
      * Can be any type of view we will compensate the min height*/
     fun setCustomView(layout: Int): ElegantDialog {
@@ -84,6 +92,7 @@ class ElegantDialog(private val mContext: Context?) {
         }
         return this
     }
+
     /** Initialize the Views.
      * All views will be accessed here*/
     private fun initiateAllViews() {
@@ -143,7 +152,7 @@ class ElegantDialog(private val mContext: Context?) {
         if (mDialog != null && mContext != null) {
             initiateAllViews()
             initiateListeners()
-            if(this.titleIcon!=null) {
+            if (this.titleIcon != null) {
                 val layerDrawable =
                     ContextCompat.getDrawable(
                         mContext,
@@ -163,19 +172,25 @@ class ElegantDialog(private val mContext: Context?) {
             } else {
                 linearLayoutRootDescription!!.setBackgroundColor(this.backgroundTopColor)
             }
-            val gradientTopDrawable=linearLayoutRootTop!!.background as GradientDrawable
-            gradientTopDrawable.cornerRadii= floatArrayOf(cornerRadius,cornerRadius,cornerRadius,cornerRadius,0f,0f,0f,0f)
+            val gradientTopDrawable = linearLayoutRootTop!!.background as GradientDrawable
+            gradientTopDrawable.cornerRadii =
+                floatArrayOf(cornerRadius, cornerRadius, cornerRadius, cornerRadius, 0f, 0f, 0f, 0f)
             gradientTopDrawable.setColor(this.backgroundTopColor)
-            linearLayoutRootTop!!.background=gradientTopDrawable
-            val gradientBottomDrawable=linearLayoutRootBottom!!.background as GradientDrawable
-            gradientBottomDrawable.cornerRadii= floatArrayOf(0f,0f,0f,0f,cornerRadius,cornerRadius,cornerRadius,cornerRadius)
+            linearLayoutRootTop!!.background = gradientTopDrawable
+            val gradientBottomDrawable = linearLayoutRootBottom!!.background as GradientDrawable
+            gradientBottomDrawable.cornerRadii =
+                floatArrayOf(0f, 0f, 0f, 0f, cornerRadius, cornerRadius, cornerRadius, cornerRadius)
             gradientBottomDrawable.setColor(this.backgroundBottomColor)
-            linearLayoutRootBottom!!.background=gradientBottomDrawable
+            linearLayoutRootBottom!!.background = gradientBottomDrawable
             mDialog.setCanceledOnTouchOutside(cancelledOnTouchOutside)
+
+            //pull request logic
+            initTitleAndContent()
             mDialog.show()
         }
         return this
     }
+
     /** Set the Title icon drawable.
      * Only allows a drawable but you can load your own image using @getTitleIconView() if you opt so
      * don't call this method */
@@ -200,7 +215,7 @@ class ElegantDialog(private val mContext: Context?) {
     /** Set the title Icon background color. This is the circular area where the title icon lies
      * Will only applied if you pass an icon @setTitleIcon()  */
     fun setTitleIconBackgroundColor(titleIconBackgroundColor: Int): ElegantDialog {
-        this.titleIconBackgroundColor= titleIconBackgroundColor
+        this.titleIconBackgroundColor = titleIconBackgroundColor
         return this
     }
 
@@ -348,24 +363,28 @@ class ElegantDialog(private val mContext: Context?) {
         this.cornerRadius = cornerRadius
         return this
     }
+
     /** On positive click Listener.*/
     private fun onPositiveFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onPositiveListener(this)
         }
     }
+
     /** On negative click Listener.*/
     private fun onNegativeFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onNegativeListener(this)
         }
     }
+
     /** On GotIt click Listener.*/
     private fun onGotItFeedbackClicked(view: View) {
         if (elegantActionListener != null) {
             elegantActionListener!!.onGotItListener(this)
         }
     }
+
     /** On Cancel click Listener.*/
     private fun onCancelListener(dialog: DialogInterface) {
         if (elegantActionListener != null) {
@@ -373,4 +392,45 @@ class ElegantDialog(private val mContext: Context?) {
         }
     }
 
+    /**
+     * Sets the dialogs title
+     */
+    fun setTitle(title: String): ElegantDialog {
+        this.title = title
+        return this
+    }
+
+    /**
+     * Sets the dialogs title with its text color
+     */
+    fun setTitle(title: String, titleColor: Int): ElegantDialog {
+        this.setTitle(title)
+        this.titleColor = titleColor
+        return this
+    }
+
+    /**
+     * Sets the content text with default white color
+     */
+    fun setContent(content: String): ElegantDialog {
+        this.content = content
+        return this
+    }
+
+    /**
+     * Sets the content text with given color
+     */
+    fun setContent(content: String, contentColor: Int): ElegantDialog {
+        this.setContent(content)
+        this.contentColor = contentColor
+        return this
+    }
+
+    private fun initTitleAndContent() {
+        if (this.title != null) textViewTitle!!.text = this.title
+        textViewTitle!!.setTextColor(titleColor)
+
+        if(this.content != null) textViewContent!!.text = content
+        textViewContent!!.setTextColor(contentColor)
+    }
 }
